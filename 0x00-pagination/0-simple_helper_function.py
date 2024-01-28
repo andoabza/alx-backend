@@ -3,4 +3,6 @@
 
 def index_range(page, pages_size):
     '''return start and end'''
-    return page * pages_size -1
+    start = (page - 1) * pages_size
+    end = page * pages_size
+    return (start, end)
