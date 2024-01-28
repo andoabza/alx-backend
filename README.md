@@ -1,2 +1,1 @@
-# alx-backend repository
-:rocket
+- alx-backend repository :rocket:
