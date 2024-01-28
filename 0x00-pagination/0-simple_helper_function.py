@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 ''' script that return range of index'''
 
 
