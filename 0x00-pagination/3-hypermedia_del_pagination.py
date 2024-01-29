@@ -43,18 +43,18 @@ class Server:
         '''get hyper index of data'''
         length = len(self.dataset())
         assert isinstance(index, int) and index < length, \
-            'index should be less than length' 
+            'index should be less than length'
         assert isinstance(page_size, int) and page_size > 0, \
-            'page_size should be greater than 0' 
+            'page_size should be greater than 0'
         pages = math.ceil(index / length)
         data = self.indexed_dataset()
-        next_index = index + page_size  if index > pages else None 
+        next_index = index + page_size if index > pages else None
         if length == len(data):
             return {
                 'index': index,
                 'data': data[index],
                 'page_size': page_size,
-                'next_index': next_index 
+                'next_index': next_index
                 }
         inde = index + next_index
         return {
