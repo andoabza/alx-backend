@@ -40,6 +40,7 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
+        '''get hyper index of data'''
         length = len(self.dataset())
         assert isinstance(index, int) and index < length, \
             'index should be less than length' 
