@@ -48,7 +48,8 @@ class Server:
             'page_size should be greater than 0'
         pages = math.ceil(index / length)
         data = self.indexed_dataset()
-        next_index = index + page_size + 1 if index < pages else index + page_size
+        next_index = index + page_size + 1 if index < pages \
+            else index + page_size
         if length == len(data):
             return {
                 'index': index,
