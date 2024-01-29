@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+'''a class that act as server for pagination'''
 import csv
 import math
 from typing import List
