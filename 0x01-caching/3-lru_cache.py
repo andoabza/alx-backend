@@ -9,14 +9,16 @@ class LRUCache(BaseCaching):
         super().__init__()
 
     def put(self, key, item):
-        '''update the data'''
+        '''update the data using LRU'''
         if key and item:
             if len(self.cache_data) >= self.MAX_ITEMS:
-                index = next(iter(self.cache_data))
-                self.cache_data.pop(index)
-                print(f'DISCARD: {index}')
-            self.cache_data.update({key: item})
-        return
+                if key in self.cache_data:
+                    self.cache_data.pop(key)
+                else:
+                    index = list(self.cache_data)[0]
+                    self.cache_data.pop(index)
+                    print(f'DISCARD: {index}')
+            self.cache_data.update({key: item})            
 
     def get(self, key):
         '''get value by key'''
