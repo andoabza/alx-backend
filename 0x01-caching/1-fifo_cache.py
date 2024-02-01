@@ -9,6 +9,7 @@ class FIFOCache(BaseCaching):
         super().__init__()
 
     def put(self, key, item):
+        '''add data into dictionary'''
         if key and item:
             if len(self.cache_data) >= self.MAX_ITEMS:
                 index = list(self.cache_data)[0]
@@ -23,6 +24,7 @@ class FIFOCache(BaseCaching):
         return
 
     def get(self, key):
+        '''return value by key'''
         if key:
             return self.cache_data.get(key)
         return None
