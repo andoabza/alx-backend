@@ -1,6 +1,6 @@
-LRUCache = __import__('3-lru_cache').LRUCache
+MRUCache = __import__('4-mru_cache').MRUCache
 
-my_cache = LRUCache()
+my_cache = MRUCache()
 my_cache.put("A", "Hello")
 my_cache.put("B", "World")
 my_cache.put("C", "Holberton")
