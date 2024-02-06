@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 '''falsk app'''
+from flask import Flask
 from flask import render_template
-app = flask(__name__)
+app = Flask(__name__)
 
 
 @app.route('/')
