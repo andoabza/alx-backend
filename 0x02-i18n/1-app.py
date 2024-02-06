@@ -11,8 +11,8 @@ class Config():
 
 
 app.config.from_object(Config)
-app.config['BABEL_DEFAULT_LOCAL'] = 'en'
-app.config['BABEL_DEFAULT_LOCAL_TIMEZONE'] = 'UTC'
+app.config['BABEL_DEFAULT_LOCALE'] = 'en'
+app.config['BABEL_DEFAULT_TIMEZONE'] = 'UTC'
 babel = Babel(app)
 
 
