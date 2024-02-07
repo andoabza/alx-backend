@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 '''falsk app'''
 from flask import Flask, render_template
 from flask_babel import Babel
@@ -13,7 +14,7 @@ class Config():
 
 
 app.config.from_object(Config)
-app.config['BABEL_DEFAULT_LOCALE'] = 'fr'
+app.config['BABEL_DEFAULT_LOCALE'] = 'en'
 app.config['BABEL_DEFAULT_TIMEZONE'] = 'UTC'
 babel = Babel(app)
 
