@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-'''falsk app'''
+"""A Basic Flask app.
+"""
 from flask import Flask, render_template
 
 
@@ -8,8 +9,9 @@ app.url_map.strict_slashes = False
 
 
 @app.route('/')
-def home() -> str:
-    '''index route'''
+def get_index() -> str:
+    """The home/index page.
+    """
     return render_template('0-index.html')
 
 
