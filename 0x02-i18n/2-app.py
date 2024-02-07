@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 '''get locale'''
 from flask import request, Flask, render_template
-from flask_babel import Babel, babel
+from flask_babel import babel
 
 
 app = Flask(__name__)
@@ -10,7 +10,7 @@ babel.init_app(app)
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> str:
     '''get local language and time'''
     return request.accept_languages.best_match(app.config('LANGUAGES'))
 
