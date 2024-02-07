@@ -6,15 +6,13 @@ from flask_babel import Babel, babel
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
+babel.init_app(app)
 
 
 @babel.localeselector
 def get_locale():
     '''get local language and time'''
     return request.accept_languages.best_match(app.config('LANGUAGES'))
-
-
-babel = Babel(app, locale_selector=get_locale)
 
 
 @app.route('/')
