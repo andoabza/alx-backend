@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 '''parametrize templates'''
-from flask_babel import gettext, Babel
+from flask_babel import Babel
 from flask import Flask, render_template
 
 
