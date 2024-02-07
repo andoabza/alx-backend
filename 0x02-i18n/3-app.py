@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 '''parametrize templates'''
-from flask_babel import Babel
+from flask_babel import Babel, gettext
 from flask import Flask, render_template
 
 
@@ -12,6 +12,7 @@ babel = Babel(app)
 
 @app.route('/')
 def get_index() -> str:
+    '''home route'''
     gettext('home_title', 'home_header')
     return render_template('3-index.html')
 
