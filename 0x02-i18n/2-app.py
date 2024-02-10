@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 '''get locale'''
 from flask import request, Flask, render_template
 from flask_babel import Babel
