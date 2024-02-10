@@ -1,8 +1,7 @@
-
+#!/usr/bin/env python3
 '''parametrize templates by _ and gettext'''
 from flask import Flask, render_template, request
 from flask_babel import Babel, gettext
-import babel
 
 
 app = Flask(__name__)
