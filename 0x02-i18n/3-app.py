@@ -9,7 +9,7 @@ babel = Babel(app)
 
 
 @app.route('/')
-def get_index():
+def get_index() -> str:
     '''get index'''
     title = gettext('home_title')
     header = gettext('home_header')
