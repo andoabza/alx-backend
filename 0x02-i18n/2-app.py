@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 '''get locale with @babel.localeselector'''
 
 from flask import Flask, render_template, request
