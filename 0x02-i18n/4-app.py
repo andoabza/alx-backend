@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""force babel from arg
+"""force babel from url parameter
 """
 
 from flask import Flask, render_template, request
@@ -17,6 +17,12 @@ class Config:
 
 
 app.config.from_object(Config)
+
+
+@babel.localeselector
+def get_locale() -> str:
+    """get locale"""
+    return request.args.get('locale')
 
 
 @app.route('/')
