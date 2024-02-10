@@ -6,6 +6,14 @@ from flask_babel import Babel, gettext as _
 app = Flask(__name__)
 babel = Babel(app)
 
+class Config:
+    '''config babel'''
+    LANGUAGES = ['en', 'es']
+    BABEL_DEFAULT_LOCALE = 'en'
+    BABEL_DEFAULT_TIMEZONE = 'UTC'
+
+app.config.from_object(Config)
+
 
 @app.route('/')
 def get_index():
