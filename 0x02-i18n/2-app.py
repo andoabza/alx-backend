@@ -20,8 +20,3 @@ babel.init_app(app, locale_selector=get_locale)
 def index() -> str:
     '''home route'''
     return render_template('2-index.html')
-
-
-if __name__ == '__main__':
-    '''main'''
-    app.run()
