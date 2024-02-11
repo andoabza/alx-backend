@@ -41,7 +41,7 @@ def before_request() -> None:
 
 @babel.localselector
 def get_locale() -> str:
-    query = request.args.get('locale')
+    query = g.user('locale')
     if query in app.config('LANGUAGES'):
         return query
     return request.accept_languages.best_match(Config)
