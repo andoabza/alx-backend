@@ -1,6 +1,7 @@
+#!/usr/bin/env python3
 '''user logging system'''
 from flask import Flask, render_template, request, g
-from flask_babel import Babel
+from flask_babel import Babel, gettext
 from typing import Dict
 
 
@@ -13,21 +14,26 @@ users = {
     4: {"name": "Teletubby", "locale": None, "timezone": "Europe/London"},
 }
 
+
 def get_user(id: int) -> Dict:
     if id in users:
         return users[id]
-    return None 
+    return None
+
 
 @app.before_request
-def before_request() -> str:
+def before_request():
     query = request.args.get('login_as')
-    users = get_user(query)
-    g.user = users
+    if query:
+        user = get_user(query)
+        g.user = user['name']
+
 
 @app.route('/')
-def index() -> str:
-    '''index route'''
-    user_name = users.get('name')
-    return render_template('5-index.html', name=user_name)
+def hello_world():
+    return render_template('5-index.html')
 
 
+if __name__ == '__main__':
+    '''main function'''
+    app.run()

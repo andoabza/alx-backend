@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-02-10 11:58+0300\n"
-"PO-Revision-Date: 2024-02-10 11:59+0300\n"
+"PO-Revision-Date: 2024-02-11 10:56+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
 "Language-Team: en <LL@li.org>\n"
@@ -25,4 +25,10 @@ msgstr "Welcome to Holberton"
 #: 3-app.py:16 templates/3-index.html:9
 msgid "home_header"
 msgstr "Hello world!"
+
+# msgid "logged_in_as"
+# msgstr "You are logged in as %(username)s."
+
+msgid "not_logged_in"
+msgstr "You are not logged in."
 
