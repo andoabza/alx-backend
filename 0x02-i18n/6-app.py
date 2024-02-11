@@ -45,9 +45,9 @@ def get_locale() -> str:
     if query in app.config('LANGUAGES'):
         return query
     user_setting = g.user['locale']
-    if user_setting and user_setting in app.config('LANGUAGES'):
+    if user_setting in app.config('LANGUAGES'):
         return user_setting
-    return request.accept_languages.best_match(Config)
+    return request.accept_languages.best_match(app.config('LANGUAGES'))
 
 
 @app.route('/')
