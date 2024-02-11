@@ -41,10 +41,16 @@ def before_request() -> None:
 
 @babel.localselector
 def get_locale() -> str:
+    '''locale selector'''
     query = request.args.get('locale')
     if query in app.config('LANGUAGES'):
         return query
-    return request.accept_languages.best_match(app.config('LANGUAGES'))
+    if g.user and g.user['locale'] in app.config["LANGUAGES"]:
+        return g.user['locale']
+    header_locale = request.headers.get('locale', '')
+    if header_locale in app.config["LANGUAGES"]:
+        return header_locale
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route('/')
