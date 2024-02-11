@@ -5,15 +5,7 @@ from flask_babel import Babel
 from typing import Dict, Union
 
 
-class Config:
-    '''config class'''
-    LANGUAGES = ["en", "fr"]
-    BABEL_DEFAULT_LOCALE = "en"
-    BABEL_DEFAULT_TIMEZONE = "UTC"
-
-
 app = Flask(__name__)
-app.config.from_object(Config)
 babel = Babel(app)
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
@@ -37,14 +29,6 @@ def before_request() -> None:
     '''function to find a user'''
     user = get_user()
     g.user = user
-
-
-@babel.localselector
-def get_locale() -> str:
-    query = request.args.get('locale')
-    if query in app.config('LANGUAGES'):
-        return query
-    return request.accept_languages.best_match(app.config('LANGUAGES'))
 
 
 @app.route('/')
