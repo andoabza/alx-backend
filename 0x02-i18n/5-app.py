@@ -2,7 +2,7 @@
 '''user logging system'''
 from flask import Flask, render_template, request, g
 from flask_babel import Babel
-from typing import Dict
+from typing import Dict, Union
 
 
 app = Flask(__name__)
@@ -15,7 +15,7 @@ users = {
 }
 
 
-def get_user() -> Dict:
+def get_user() -> Union[Dict, None]:
     '''function to find a user'''
     query = request.args.get('login_as')
     if query:
