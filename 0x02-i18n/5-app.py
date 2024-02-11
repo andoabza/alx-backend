@@ -1,6 +1,7 @@
+#!/usr/bin/env python3
 '''user logging system'''
 from flask import Flask, render_template, request, g
-from flask_babel import Babel, gettext
+from flask_babel import Babel
 from typing import Dict
 
 
