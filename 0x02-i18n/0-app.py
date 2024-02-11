@@ -5,14 +5,15 @@ from flask import Flask, render_template
 
 
 app = Flask(__name__)
-app.url_map.strict_slashes = False
 
 
 @app.route('/')
 def get_index() -> str:
     """The home/index page.
     """
-    return render_template('0-index.html')
+    title = 'Welcome to Holberton'
+    header = 'Hello world'
+    return render_template('0-index.html', title=title, header=header)
 
 
 if __name__ == '__main__':

@@ -27,6 +27,7 @@ def before_request() -> str:
 @app.route('/')
 def index() -> str:
     '''index route'''
-    return render_template('5-index.html')
+    user_name = users.get('name')
+    return render_template('5-index.html', name=user_name)
 
 
