@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 '''user logging system'''
 from flask import Flask, render_template, request, g
 from flask_babel import Babel, gettext
@@ -15,22 +14,25 @@ users = {
 }
 
 
-def get_user(id: int) -> Dict:
-    if id in users:
-        return users[id]
+def get_user() -> Dict:
+    '''function to find a user'''
+    query = request.args.get('login_as')
+    if query:
+        user = users.get(int(query))
+        return user
     return None
 
 
 @app.before_request
 def before_request() -> None:
-    query = request.args.get('login_as')
-    if query:
-        user = get_user(query)
-        g.user = user['name']
+    '''function to find a user'''
+    user = get_user()
+    g.user = user
 
 
 @app.route('/')
 def hello_world() -> str:
+    '''main function'''
     return render_template('5-index.html')
 
 
