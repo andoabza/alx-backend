@@ -50,9 +50,6 @@ def get_locale() -> str:
     return request.accept_languages.best_match(Config)
 
 
-Babel(app, localeselector=get_locale)
-
-
 @app.route('/')
 def hello_world() -> str:
     '''main function'''
