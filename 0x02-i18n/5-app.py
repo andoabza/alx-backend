@@ -22,7 +22,7 @@ def get_user(id: int) -> Dict:
 
 
 @app.before_request
-def before_request():
+def before_request() -> None:
     query = request.args.get('login_as')
     if query:
         user = get_user(query)
@@ -30,7 +30,7 @@ def before_request():
 
 
 @app.route('/')
-def hello_world():
+def hello_world() -> str:
     return render_template('5-index.html')
 
 
