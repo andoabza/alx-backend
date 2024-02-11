@@ -39,6 +39,23 @@ def before_request() -> None:
     g.user = user
 
 
+@babel.localselector
+def get_locale() -> str:
+    query = request.args.get('locale')
+    if query and query in Config.LANGUAGES:
+        return query
+    user_setting = g.user['locale']
+    if user_setting and user_setting in Config.LANGUAGES:
+        return user_setting
+    header = request.headers
+    if header and header in Config.LANGUAGES:
+        return header
+    return request.accept_languages.best_match(Config)
+
+
+Babel(app, localeselector=get_locale)
+
+
 @app.route('/')
 def hello_world() -> str:
     '''main function'''
